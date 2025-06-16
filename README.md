@@ -1,10 +1,14 @@
-- 👋 Hi, I’m @Littihai
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+### 👋 Hi, I’m @Littihai
+
+- 💻 I’m a programmer with experience in **Web** and **Mobile Application Development**
+- 🔧 Skilled in: **PHP**, **C#**, **HTML**, **CSS**, **JavaScript**, **SQL Server**, and **Arduino/Embedded Systems**
+- 🧠 Passionate about **AI**, automation, and building tech to improve service and operations
+- 📱 Past projects include:  
+  - An **Online Market Reservation System** for stall management  
+  - A **Room Booking System**  
+  - A **1:M Contact & User Management Platform**
+- 🛠️ I enjoy designing intuitive UIs and writing clean, maintainable code
+- 📫 Reach me via GitHub or email: [your.email@example.com]
 
 <!---
 Littihai/Littihai is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
