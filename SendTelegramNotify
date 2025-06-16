@@ -1,0 +1,29 @@
+function sendTelegramNotify() {
+  var token = '7550895153:AAHRs3yMNWzNY9CdGqqgeX28YfvIIoANmCg'; // ใส่ Telegram bot token
+  var chatId = '-4980296139'; // ใส่ chat ID
+
+var message = 
+  "QCC: Friday, 08:00:09\n" +
+  "Plant: Hemaraj\n" +
+  "เซ็นเซอร์อุณหภูมิ: อุณหภูมิปกติ (24.17°C)\n" +
+  "เซ็นเซอร์ควัน: ไม่พบควันไฟ\n" +
+  "เซ็นเซอร์น้ำ แอร์ 208: ไม่พบน้ำรั่ว\n" +
+  "เซ็นเซอร์น้ำ แอร์ 212: ไม่พบน้ำรั่ว";
+
+
+  var telegramUrl = 'https://api.telegram.org/bot' + token + '/sendMessage';
+
+  var payload = {
+    'chat_id': chatId,
+    'text': message,
+    'parse_mode': 'Markdown'
+  };
+
+  var options = {
+    'method': 'post',
+    'contentType': 'application/json',
+    'payload': JSON.stringify(payload)
+  };
+
+  UrlFetchApp.fetch(telegramUrl, options);
+}
