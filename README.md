@@ -8,7 +8,7 @@
   - A **Room Booking System**  
   - A **1:M Contact & User Management Platform**
 - 🛠️ I enjoy designing intuitive UIs and writing clean, maintainable code
-- 📫 Reach me via GitHub or email: [your.email@example.com]
+- 📫 Reach me via GitHub or email: [menmry1436@gmail.com] or [littichai_y@ts-engineering.com]
 
 <!---
 Littihai/Littihai is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
