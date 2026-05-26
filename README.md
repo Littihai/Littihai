@@ -1,6 +1,7 @@
 <div align="center">
 
 <!-- HEADER BANNER -->
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:0d1117,50:1a1f35,100:0d1117&amp;height=200&amp;section=header&amp;text=Littichai%20Yorach&amp;fontSize=52&amp;fontColor=00d4ff&amp;fontAlignY=38&amp;desc=System%20%26%20Web%20Developer%20%7C%20ASP.NET%20MVC%20%2B%20SQL%20Server&amp;descSize=16&amp;descColor=94a3b8&amp;descAlignY=60&amp;animation=fadeIn" />
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:1a1f35,100:0d1117&height=200"/>
 
 <!-- TYPING ANIMATION -->
