@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- HEADER BANNER -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:0d1117,50:1a1f35,100:0d1117&amp;height=200&amp;section=header&amp;text=Littichai%20Yorach&amp;fontSize=52&amp;fontColor=00d4ff&amp;fontAlignY=38&amp;desc=System%20%26%20Web%20Developer%20%7C%20ASP.NET%20MVC%20%2B%20SQL%20Server&amp;descSize=16&amp;descColor=94a3b8&amp;descAlignY=60&amp;animation=fadeIn" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:1a1f35,100:0d1117&height=200"/>
 
 <!-- TYPING ANIMATION -->
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=22&pause=1000&color=00D4FF&center=true&vCenter=true&width=600&lines=Full+Stack+Developer+%F0%9F%9A%80;ASP.NET+MVC+%2B+SQL+Server+Expert;Enterprise+Workflow+Automation;React+%2B+TypeScript+Frontend;Windows+App+%26+PowerShell+Dev)](https://git.io/typing-svg)
