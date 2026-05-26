@@ -257,6 +257,6 @@ Stack: ASP.NET MVC · Dynamic Form · Frontend & Backend Validation · SQL Serve
 
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:0d1117,50:1a1f35,100:0d1117&amp;height=120&amp;section=footer&amp;text=Always%20Learning%20%7C%20Always%20Building&amp;fontSize=16&amp;fontColor=64748b&amp;fontAlignY=65&amp;animation=fadeIn"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:0d1117,50:1a1f35,100:0d1117&amp;height=120&amp;section=footer&amp;text=LITTICHAI%20YORACH%20%7C%20&amp;fontSize=16&amp;fontColor=64748b&amp;fontAlignY=65&amp;animation=fadeIn"/>
 
 </div>
