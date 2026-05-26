@@ -1,11 +1,7 @@
 <div align="center">
 
 <!-- HEADER BANNER -->
-<div align="center">
-
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:0d1117,50:1a1f35,100:0d1117&amp;height=120&amp;section=footer&amp;text=Always%20Learning%20%7C%20Always%20Building&amp;fontSize=16&amp;fontColor=64748b&amp;fontAlignY=65&amp;animation=fadeIn"/>
-
-</div>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:0d1117,50:1a1f35,100:0d1117&amp;height=200&amp;section=header&amp;text=Littichai%20Yorach&amp;fontSize=52&amp;fontColor=00d4ff&amp;fontColor=64748b&amp;fontAlignY=65&amp;animation=fadeIn"/>
 
 <!-- TYPING ANIMATION -->
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=22&pause=1000&color=00D4FF&center=true&vCenter=true&width=600&lines=Full+Stack+Developer+%F0%9F%9A%80;ASP.NET+MVC+%2B+SQL+Server+Expert;Enterprise+Workflow+Automation;React+%2B+TypeScript+Frontend;Windows+App+%26+PowerShell+Dev)](https://git.io/typing-svg)
@@ -257,6 +253,6 @@ Stack: ASP.NET MVC · Dynamic Form · Frontend & Backend Validation · SQL Serve
 
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:0d1117,50:1a1f35,100:0d1117&amp;height=120&amp;section=footer&amp;text=LITTICHAI%20YORACH%20%7C%20&amp;fontSize=16&amp;fontColor=64748b&amp;fontAlignY=65&amp;animation=fadeIn"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:0d1117,50:1a1f35,100:0d1117&amp;height=120&amp;section=footer&amp;text=Always%20Learning%20%7C%20Always%20Building&amp;fontSize=16&amp;fontColor=64748b&amp;fontAlignY=65&amp;animation=fadeIn"/>
 
 </div>
