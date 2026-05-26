@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- HEADER BANNER -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:1a1f35,100:0d1117&height=200&section=header&text=Littichai%20Yorach&fontSize=52&fontColor=00d4ff&fontAlignY=38&desc=System%20%26%20Web%20Developer%20%7C%20ASP.NET%20MVC%20%2B%20SQL%20Server&descSize=16&descColor=94a3b8&descAlignY=60&animation=fadeIn" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:0d1117,50:1a1f35,100:0d1117&amp;height=200&amp;section=header&amp;text=Littichai%20Yorach&amp;fontSize=52&amp;fontColor=00d4ff&amp;fontAlignY=38&amp;desc=System%20%26%20Web%20Developer%20%7C%20ASP.NET%20MVC%20%2B%20SQL%20Server&amp;descSize=16&amp;descColor=94a3b8&amp;descAlignY=60&amp;animation=fadeIn" />
 
 <!-- TYPING ANIMATION -->
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=22&pause=1000&color=00D4FF&center=true&vCenter=true&width=600&lines=Full+Stack+Developer+%F0%9F%9A%80;ASP.NET+MVC+%2B+SQL+Server+Expert;Enterprise+Workflow+Automation;React+%2B+TypeScript+Frontend;Windows+App+%26+PowerShell+Dev)](https://git.io/typing-svg)
@@ -208,8 +208,8 @@ Stack: ASP.NET MVC · Dynamic Form · Frontend & Backend Validation · SQL Serve
 
 <div align="center">
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=Littihai&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=0d1117&title_color=00d4ff&icon_color=00d4ff&text_color=94a3b8"/>
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Littihai&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00d4ff&text_color=94a3b8"/>
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=Littihai&amp;show_icons=true&amp;theme=tokyonight&amp;include_all_commits=true&amp;count_private=true&amp;hide_border=true&amp;bg_color=0d1117&amp;title_color=00d4ff&amp;icon_color=00d4ff&amp;text_color=94a3b8"/>
+<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Littihai&amp;layout=compact&amp;theme=tokyonight&amp;hide_border=true&amp;bg_color=0d1117&amp;title_color=00d4ff&amp;text_color=94a3b8"/>
 
 </div>
 
@@ -253,6 +253,6 @@ Stack: ASP.NET MVC · Dynamic Form · Frontend & Backend Validation · SQL Serve
 
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:1a1f35,100:0d1117&height=120&section=footer&text=Always%20Learning%20%7C%20Always%20Building&fontSize=16&fontColor=64748b&fontAlignY=65&animation=fadeIn"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&amp;color=0:0d1117,50:1a1f35,100:0d1117&amp;height=120&amp;section=footer&amp;text=Always%20Learning%20%7C%20Always%20Building&amp;fontSize=16&amp;fontColor=64748b&amp;fontAlignY=65&amp;animation=fadeIn"/>
 
 </div>
