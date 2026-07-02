@@ -221,6 +221,26 @@ Stack: ASP.NET MVC · Dynamic Form · Frontend & Backend Validation · SQL Serve
 
 ---
 
+## 📊 Activity Overview
+
+<div align="center">
+
+<img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=Littihai&theme=tokyo-night&bg_color=0d1117&color=00d4ff&line=00d4ff&point=f59e0b&area=true&area_color=1a1f35&title_color=00d4ff&hide_border=true"/>
+
+</div>
+
+<div align="center">
+
+![Commit Activity](https://img.shields.io/github/commit-activity/y/Littihai/CIC_APPROVE?style=flat-square&color=00d4ff&label=Commits%2FYear)
+![Last Commit](https://img.shields.io/github/last-commit/Littihai/CIC_APPROVE?style=flat-square&color=7c3aed&label=Last%20Commit)
+![Contribution Graph](https://img.shields.io/badge/Contribution%20Graph-Active-10b981?style=flat-square&logo=github)
+
+</div>
+
+> 💡 Activity graph updates automatically based on daily GitHub contributions across all public repositories.
+
+---
+
 ## 🎯 Expertise Highlights
 
 ```
