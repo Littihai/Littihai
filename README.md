@@ -1,7 +1,5 @@
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:1a1f35,100:0d1117&height=200&section=header&text=Littichai%20Yorach&fontSize=52&fontColor=00d4ff&fontAlignY=65&animation=fadeIn"/>
-
 <!-- TYPING ANIMATION -->
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=22&pause=1000&color=00D4FF&center=true&vCenter=true&width=600&lines=Full+Stack+Developer+%F0%9F%9A%80;ASP.NET+MVC+%2B+SQL+Server+Expert;Enterprise+Workflow+Automation;React+%2B+TypeScript+Frontend;Windows+App+%26+PowerShell+Dev)](https://git.io/typing-svg)
 
