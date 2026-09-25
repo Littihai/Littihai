@@ -1,139 +1,96 @@
+<!-- ============ HERO ============ -->
 <div align="center">
 
-<!-- TYPING ANIMATION -->
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=22&pause=1000&color=00D4FF&center=true&vCenter=true&width=700&lines=Full+Stack+Developer+%F0%9F%9A%80;ASP.NET+MVC+%2B+.NET+%2B+SQL+Server;Oracle+%2B+PL%2FSQL+Developer;React+%2B+TypeScript+Frontend;Supabase+%2B+PostgreSQL;Enterprise+Workflow+Automation;Factory+Digital+Transformation)](https://git.io/typing-svg)
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,55:0E3A4A,100:00D4FF&height=190&section=header&text=Littichai%20Yorach&fontSize=44&fontColor=FFFFFF&fontAlignY=36&desc=I%20turn%20paper-based%20factory%20workflows%20into%20reliable%20software&descSize=16&descAlignY=58&descColor=CFF6FF" width="100%" alt="Littichai Yorach"/>
 
-<br/>
-
-<!-- BADGES -->
-![Profile Views](https://komarev.com/ghpvc/?username=Littihai&color=00d4ff&style=flat-square&label=PROFILE+VIEWS)
-[![GitHub followers](https://img.shields.io/github/followers/Littihai?color=00d4ff&style=flat-square&logo=github&label=Followers)](https://github.com/Littihai)
-![Repos](https://img.shields.io/badge/Repositories-20+-00d4ff?style=flat-square&logo=github)
-![Level](https://img.shields.io/badge/Level-Mid--Level%20Developer-7c3aed?style=flat-square&logo=github)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=20&pause=1200&color=00D4FF&center=true&vCenter=true&width=640&lines=Full+Stack+Developer+%7C+ASP.NET+%2B+React;SQL+Server+design+and+query+tuning;Factory+digital+transformation)](https://git.io/typing-svg)
 
 </div>
 
-## 🚀 Tech Stack
+<!-- ============ ABOUT ============ -->
+## About me
 
-### 🔷 Backend
+I build internal enterprise systems for manufacturing — the kind that replace paper forms,
+spreadsheets and copy-paste steps with one clean workflow.
 
-![C#](https://img.shields.io/badge/C%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)
-![ASP.NET MVC](https://img.shields.io/badge/ASP.NET%20MVC-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
-![.NET Core](https://img.shields.io/badge/.NET%20Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
-![REST API](https://img.shields.io/badge/REST%20API-00d4ff?style=for-the-badge&logo=fastapi&logoColor=black)
-![Dapper](https://img.shields.io/badge/Dapper-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
-![Entity Framework](https://img.shields.io/badge/Entity%20Framework-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
-![MailKit](https://img.shields.io/badge/MailKit-0078D4?style=for-the-badge)
-![Background Worker](https://img.shields.io/badge/Background%20Worker-512BD4?style=for-the-badge)
+My strongest area is the database: SQL Server schema design, stored procedures,
+and making slow reports fast. On top of that I build the full stack in ASP.NET and React.
 
+**How I work on every project**
 
-### 🔶 Frontend
+```
+Business need  ──►  Current process  ──►  Root problem  ──►  Database design  ──►  Build  ──►  Measure & tune
+```
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![Bootstrap](https://img.shields.io/badge/Bootstrap%205-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
-![jQuery](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)
-![AJAX](https://img.shields.io/badge/AJAX-1572B6?style=for-the-badge)
-![Razor](https://img.shields.io/badge/Razor-512BD4?style=for-the-badge)
+<!-- ============ WORK ============ -->
+## Systems I've built
 
+| System | What it does |
+|---|---|
+| **RFQ Management** | Manages requests for quotation from intake to response |
+| **EDI Forecast Automation** | Receives customer forecasts via EDI automatically — no manual re-keying |
+| **EDI Integration** | Connects customer EDI data with internal systems |
+| **Barcode System** | Tracks items with barcode scanning across internal processes |
+| **Search System** | Fast search over large internal datasets, built around SQL optimization |
+| **Production Control Planning** 🚧 | Predictive production planning for an automotive parts factory |
+| **PR / PO Approval** 🚧 | Purchase requisition and purchase order approval workflow |
+| **IT Repair Request** 🚧 | Helpdesk for reporting and tracking IT repair jobs |
 
-### 🗄️ Database
+<sub>🚧 = currently in design / development. Most systems are internal, so source code is private.</sub>
 
-![Microsoft SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
-![Oracle](https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
-![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+<!-- ============ STACK ============ -->
+## Tech stack
 
-![Stored Procedure](https://img.shields.io/badge/Stored%20Procedure-CC2927?style=for-the-badge)
-![PL/SQL](https://img.shields.io/badge/PL%2FSQL-F80000?style=for-the-badge&logo=oracle&logoColor=white)
+<table>
+  <tr>
+    <td width="120"><b>Backend</b></td>
+    <td><img src="https://skillicons.dev/icons?i=cs,dotnet&theme=dark" height="40"/>&nbsp; ASP.NET MVC, .NET Core, REST API, Dapper, Entity Framework</td>
+  </tr>
+  <tr>
+    <td><b>Database</b></td>
+    <td>
+      <img src="https://img.shields.io/badge/SQL%20Server-CC2927?style=flat-square&logo=microsoftsqlserver&logoColor=white"/>
+      <img src="https://img.shields.io/badge/Oracle%20PL%2FSQL-F80000?style=flat-square&logo=oracle&logoColor=white"/>
+      <img src="https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white"/>
+      <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white"/>
+      <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white"/>
+      <br/>Stored procedures, indexing, execution plan analysis, data migration
+    </td>
+  </tr>
+  <tr>
+    <td><b>Frontend</b></td>
+    <td><img src="https://skillicons.dev/icons?i=react,ts,js,html,css,bootstrap,jquery&theme=dark" height="40"/><br/>Razor, AJAX</td>
+  </tr>
+  <tr>
+    <td><b>Security</b></td>
+    <td>JWT, OAuth 2.0 / Google login, role-based access control, audit log, password policy</td>
+  </tr>
+  <tr>
+    <td><b>Deploy & tools</b></td>
+    <td><img src="https://skillicons.dev/icons?i=git,github,visualstudio,vscode,postman,powershell,windows&theme=dark" height="40"/><br/>IIS, Windows Server, HTTPS/SSL, health checks, background workers, MailKit</td>
+  </tr>
+</table>
 
+**Factory domain:** ERP, MES, WMS, production planning, quality and warehouse workflows,
+barcode / QR, e-forms and paperless processes, PLC and machine data.
 
-### 🔄 Architecture & Design
+**Beyond code:** requirement and process analysis, workflow design, Kaizen and cost reduction.
 
-![Layered Architecture](https://img.shields.io/badge/Layered%20Architecture-512BD4?style=for-the-badge)
-![REST Architecture](https://img.shields.io/badge/REST%20Architecture-00D4FF?style=for-the-badge)
-![Modular Architecture](https://img.shields.io/badge/Modular%20Architecture-7C3AED?style=for-the-badge)
-![RBAC](https://img.shields.io/badge/RBAC-DC2626?style=for-the-badge)
-![Separation of Concerns](https://img.shields.io/badge/Separation%20of%20Concerns-475569?style=for-the-badge)
+<!-- ============ ACTIVITY ============ -->
+## Activity
 
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=Littihai&theme=dark&hide_border=true&background=0D1117&ring=00D4FF&fire=00D4FF&currStreakLabel=00D4FF&sideLabels=94A3B8&dates=64748B">
+  <img src="https://streak-stats.demolab.com?user=Littihai&hide_border=true&ring=0891B2&fire=0891B2&currStreakLabel=0891B2" alt="GitHub streak"/>
+</picture>
+</div>
 
-### 🔐 Auth & Security
+<!-- ============ CONTACT ============ -->
+## Get in touch
 
-![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
-![OAuth](https://img.shields.io/badge/OAuth%202.0-EB5424?style=for-the-badge&logo=auth0&logoColor=white)
-![Google](https://img.shields.io/badge/Google%20Login-4285F4?style=for-the-badge&logo=google&logoColor=white)
+<!-- แก้ลิงก์ด้านล่างเป็นของจริง หรือลบบรรทัดที่ไม่ใช้ -->
+[![Email](https://img.shields.io/badge/Email-00D4FF?style=flat-square&logo=gmail&logoColor=black)](mailto:your.email@example.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/your-profile)
 
-![RBAC](https://img.shields.io/badge/Role%20Based%20Access%20Control-7C3AED?style=for-the-badge)
-![Permission](https://img.shields.io/badge/Permission%20Management-00D4FF?style=for-the-badge)
-![Audit Log](https://img.shields.io/badge/Audit%20Log-475569?style=for-the-badge)
-![Password Policy](https://img.shields.io/badge/Password%20Policy-DC2626?style=for-the-badge)
-
-
-### 🏭 Enterprise Systems
-
-![ERP](https://img.shields.io/badge/ERP-512BD4?style=for-the-badge)
-![MES](https://img.shields.io/badge/MES-00D4FF?style=for-the-badge)
-![WMS](https://img.shields.io/badge/WMS-16A34A?style=for-the-badge)
-![MMS](https://img.shields.io/badge/MMS-F97316?style=for-the-badge)
-![Workflow](https://img.shields.io/badge/Workflow%20Automation-7C3AED?style=for-the-badge)
-![Digital Transformation](https://img.shields.io/badge/Digital%20Transformation-0891B2?style=for-the-badge)
-
-![Production Planning](https://img.shields.io/badge/Production%20Planning-475569?style=for-the-badge)
-![Quality Management](https://img.shields.io/badge/Quality%20Management-16A34A?style=for-the-badge)
-![Warehouse Management](https://img.shields.io/badge/Warehouse%20Management-F97316?style=for-the-badge)
-![Help Desk](https://img.shields.io/badge/Help%20Desk-2563EB?style=for-the-badge)
-![PR Workflow](https://img.shields.io/badge/PR%20Workflow-7C3AED?style=for-the-badge)
-
-
-### 🏭 Industrial & Factory Technology
-
-![PLC](https://img.shields.io/badge/PLC-475569?style=for-the-badge)
-![Machine Data](https://img.shields.io/badge/Machine%20Data-00D4FF?style=for-the-badge)
-![IoT](https://img.shields.io/badge/IoT-7C3AED?style=for-the-badge)
-![Barcode](https://img.shields.io/badge/Barcode-111827?style=for-the-badge)
-![QR Code](https://img.shields.io/badge/QR%20Code-111827?style=for-the-badge)
-![E-Form](https://img.shields.io/badge/E--Form-16A34A?style=for-the-badge)
-![Paperless](https://img.shields.io/badge/Paperless-0891B2?style=for-the-badge)
-
-
-### 📊 Business & Process Analysis
-
-![Requirement Analysis](https://img.shields.io/badge/Requirement%20Analysis-475569?style=for-the-badge)
-![Process Analysis](https://img.shields.io/badge/Process%20Analysis-512BD4?style=for-the-badge)
-![Workflow Design](https://img.shields.io/badge/Workflow%20Design-7C3AED?style=for-the-badge)
-![Kaizen](https://img.shields.io/badge/Kaizen-16A34A?style=for-the-badge)
-![Process Improvement](https://img.shields.io/badge/Process%20Improvement-0891B2?style=for-the-badge)
-![Cost Reduction](https://img.shields.io/badge/Cost%20Reduction-F97316?style=for-the-badge)
-
-
-### ⚙️ Tools & DevOps
-
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&labelColor=181717)
-![Visual Studio](https://img.shields.io/badge/Visual%20Studio-5C2D91?style=for-the-badge&logo=visualstudio&logoColor=white)
-![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
-![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
-![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white)
-![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
-![IIS](https://img.shields.io/badge/IIS-0078D4?style=for-the-badge&logo=Microsoft&logoColor=white)
-
-
-### 🖥️ Server & Deployment
-
-![Windows Server](https://img.shields.io/badge/Windows%20Server-0078D6?style=for-the-badge&logo=windows&logoColor=white)
-![IIS](https://img.shields.io/badge/IIS-0078D4?style=for-the-badge)
-![HTTPS](https://img.shields.io/badge/HTTPS-16A34A?style=for-the-badge)
-![SSL](https://img.shields.io/badge/SSL-2563EB?style=for-the-badge)
-![API Deployment](https://img.shields.io/badge/API%20Deployment-512BD4?style=for-the-badge)
-![Health Check](https://img.shields.io/badge/Health%20Check-16A34A?style=for-the-badge)
-
-
-<p align="center">
-  <br>
-  <img src="https://streak-stats.demolab.com?user=Littihai&theme=dark&hide_border=true&background=0D1117&stroke=0D1117&ring=00d4ff&fire=00d4ff&currStreakLabel=00d4ff&sideLabels=94a3b8&dates=64748b">
-  <br>
-</p>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00D4FF,45:0E3A4A,100:0D1117&height=90&section=footer" width="100%"/>
