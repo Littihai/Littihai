@@ -1,110 +1,30 @@
-<!-- ============ HERO ============ -->
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,55:0E3A4A,100:00D4FF&height=190&section=header&text=Littichai%20Yorach&fontSize=44&fontColor=FFFFFF&fontAlignY=36&desc=I%20turn%20paper-based%20factory%20workflows%20into%20reliable%20software&descSize=16&descAlignY=58&descColor=CFF6FF" width="100%" alt="Littichai Yorach"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,55:0E3A4A,100:00D4FF&height=170&section=header&text=Littichai%20Yorach&fontSize=42&fontColor=FFFFFF&fontAlignY=38&desc=I%20turn%20paper-based%20factory%20workflows%20into%20reliable%20software&descSize=15&descAlignY=60&descColor=CFF6FF" width="100%" alt="Littichai Yorach"/>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=20&pause=1200&color=00D4FF&center=true&vCenter=true&width=640&lines=Full+Stack+Developer+%7C+ASP.NET+%2B+React;SQL+Server+design+and+query+tuning;Factory+digital+transformation)](https://git.io/typing-svg)
+**Full stack developer building enterprise systems for manufacturing with ASP.NET, React and SQL Server.**
 
-</div>
+![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
+![Oracle](https://img.shields.io/badge/Oracle%20PL%2FSQL-F80000?style=for-the-badge&logo=oracle&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+<br/>
+![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)
+![ASP.NET](https://img.shields.io/badge/ASP.NET%20MVC-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![.NET Core](https://img.shields.io/badge/.NET%20Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+<br/>
+![SSIS](https://img.shields.io/badge/SSIS-CC2927?style=for-the-badge)
+![EDI](https://img.shields.io/badge/EDI-0E3A4A?style=for-the-badge)
+![IIS](https://img.shields.io/badge/IIS-0078D4?style=for-the-badge)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 
-<!-- ============ ABOUT ============ -->
-## About me
-
-I build internal enterprise systems for manufacturing — the kind that replace paper forms,
-spreadsheets and copy-paste steps with one clean workflow.
-Right now I'm bringing all of them together into **One Platform**.
-
-My strongest area is the database: SQL Server schema design, stored procedures,
-and making slow reports fast. On top of that I build the full stack in ASP.NET and React.
-
-**How I work on every project**
-
-```
-Business need  ──►  Current process  ──►  Root problem  ──►  Database design  ──►  Build  ──►  Measure & tune
-```
-
-<!-- ============ WORK ============ -->
-## One Platform
-
-One web platform that brings every factory system under a single login.
-Each system is a module that plugs into a shared core, so users sign in once,
-permissions are managed in one place, and every module speaks to the same data.
-
-```mermaid
-flowchart TB
-    U([Users]) --> CORE
-    subgraph CORE["Shared core"]
-        direction LR
-        A[Single login] --- R[Roles and permissions] --- L[Audit log] --- N[Notifications]
-    end
-    CORE --> S["Sales and customer<br/>RFQ, EDI Integration, EDI Forecast"]
-    CORE --> M["Production<br/>Production Control, Barcode"]
-    CORE --> B["Purchasing<br/>PR / PO Approval"]
-    CORE --> I["IT service<br/>Repair Request"]
-    CORE --> Q["Search"]
-
-    classDef core fill:#0E3A4A,stroke:#00D4FF,color:#FFFFFF
-    classDef mod fill:#0D1117,stroke:#00D4FF,color:#CFF6FF
-    class A,R,L,N core
-    class S,M,B,I,Q mod
-```
-<!-- ============ STACK ============ -->
-## Tech stack
-
-<table>
-  <tr>
-    <td width="120"><b>Backend</b></td>
-    <td><img src="https://skillicons.dev/icons?i=cs,dotnet&theme=dark" height="40"/>&nbsp; ASP.NET MVC, .NET Core, REST API, Dapper, Entity Framework</td>
-  </tr>
-  <tr>
-    <td><b>Database</b></td>
-    <td>
-      <img src="https://img.shields.io/badge/SQL%20Server-CC2927?style=flat-square&logo=microsoftsqlserver&logoColor=white"/>
-      <img src="https://img.shields.io/badge/Oracle%20PL%2FSQL-F80000?style=flat-square&logo=oracle&logoColor=white"/>
-      <img src="https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white"/>
-      <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white"/>
-      <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white"/>
-      <br/>Stored procedures, indexing, execution plan analysis, data migration
-    </td>
-  </tr>
-  <tr>
-    <td><b>Frontend</b></td>
-    <td><img src="https://skillicons.dev/icons?i=react,ts,js,html,css,bootstrap,jquery&theme=dark" height="40"/><br/>Razor, AJAX</td>
-  </tr>
-  <tr>
-    <td><b>Automation</b></td>
-    <td><img src="https://skillicons.dev/icons?i=powershell&theme=dark" height="40"/>&nbsp; SSIS, EDI data exchange, background workers, scheduled jobs, automated email (MailKit), workflow automation</td>
-  </tr>
-  <tr>
-    <td><b>Security</b></td>
-    <td>JWT, OAuth 2.0 / Google login, role-based access control, audit log, password policy</td>
-  </tr>
-  <tr>
-    <td><b>Deploy & tools</b></td>
-    <td><img src="https://skillicons.dev/icons?i=git,github,visualstudio,vscode,postman,powershell,windows&theme=dark" height="40"/><br/>IIS, Windows Server, HTTPS/SSL, health checks</td>
-  </tr>
-</table>
-
-**Factory domain:** ERP, MES, WMS, production planning, quality and warehouse workflows,
-barcode / QR, e-forms and paperless processes, PLC and machine data.
-
-**Beyond code:** requirement and process analysis, workflow design, Kaizen and cost reduction.
-
-<!-- ============ ACTIVITY ============ -->
-## Activity
-
-<div align="center">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=Littihai&theme=dark&hide_border=true&background=0D1117&ring=00D4FF&fire=00D4FF&currStreakLabel=00D4FF&sideLabels=94A3B8&dates=64748B">
-  <img src="https://streak-stats.demolab.com?user=Littihai&hide_border=true&ring=0891B2&fire=0891B2&currStreakLabel=0891B2" alt="GitHub streak"/>
-</picture>
-</div>
-
-<!-- ============ CONTACT ============ -->
-## Get in touch
-
-<!-- แก้ลิงก์ด้านล่างเป็นของจริง หรือลบบรรทัดที่ไม่ใช้ -->
+<!-- แก้ลิงก์เป็นของจริง -->
 [![Email](https://img.shields.io/badge/Email-00D4FF?style=flat-square&logo=gmail&logoColor=black)](mailto:your.email@example.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/your-profile)
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00D4FF,45:0E3A4A,100:0D1117&height=90&section=footer" width="100%"/>
+</div>
+
+**Now building One Platform** — one login for every factory system:
+RFQ, EDI, Barcode, Production Control, PR / PO and IT Repair Request as modules on a shared core.
