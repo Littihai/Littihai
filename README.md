@@ -12,6 +12,7 @@
 
 I build internal enterprise systems for manufacturing — the kind that replace paper forms,
 spreadsheets and copy-paste steps with one clean workflow.
+Right now I'm bringing all of them together into **One Platform**.
 
 My strongest area is the database: SQL Server schema design, stored procedures,
 and making slow reports fast. On top of that I build the full stack in ASP.NET and React.
@@ -23,20 +24,45 @@ Business need  ──►  Current process  ──►  Root problem  ──►  D
 ```
 
 <!-- ============ WORK ============ -->
-## Systems I've built
+## One Platform
 
-| System | What it does |
-|---|---|
-| **RFQ Management** | Manages requests for quotation from intake to response |
-| **EDI Forecast Automation** | Receives customer forecasts via EDI automatically — no manual re-keying |
-| **EDI Integration** | Connects customer EDI data with internal systems |
-| **Barcode System** | Tracks items with barcode scanning across internal processes |
-| **Search System** | Fast search over large internal datasets, built around SQL optimization |
-| **Production Control Planning** 🚧 | Predictive production planning for an automotive parts factory |
-| **PR / PO Approval** 🚧 | Purchase requisition and purchase order approval workflow |
-| **IT Repair Request** 🚧 | Helpdesk for reporting and tracking IT repair jobs |
+One web platform that brings every factory system under a single login.
+Each system is a module that plugs into a shared core, so users sign in once,
+permissions are managed in one place, and every module speaks to the same data.
 
-<sub>🚧 = currently in design / development. Most systems are internal, so source code is private.</sub>
+```mermaid
+flowchart TB
+    U([Users]) --> CORE
+    subgraph CORE["Shared core"]
+        direction LR
+        A[Single login] --- R[Roles and permissions] --- L[Audit log] --- N[Notifications]
+    end
+    CORE --> S["Sales and customer<br/>RFQ, EDI Integration, EDI Forecast"]
+    CORE --> M["Production<br/>Production Control, Barcode"]
+    CORE --> B["Purchasing<br/>PR / PO Approval"]
+    CORE --> I["IT service<br/>Repair Request"]
+    CORE --> Q["Search"]
+
+    classDef core fill:#0E3A4A,stroke:#00D4FF,color:#FFFFFF
+    classDef mod fill:#0D1117,stroke:#00D4FF,color:#CFF6FF
+    class A,R,L,N core
+    class S,M,B,I,Q mod
+```
+
+### Modules
+
+| Area | Module | What it does | Status |
+|---|---|---|---|
+| Sales and customer | **RFQ Management** | Manages requests for quotation from intake to response | ✅ Live |
+| | **EDI Integration** | Connects customer EDI data with internal systems | ✅ Live |
+| | **EDI Forecast Automation** | Receives customer forecasts via EDI with no manual re-keying | ✅ Live |
+| Production | **Production Control Planning** | Predictive production planning for an automotive parts factory | 🚧 Building |
+| | **Barcode** | Tracks items with barcode scanning across internal processes | ✅ Live |
+| Purchasing | **PR / PO Approval** | Purchase requisition and purchase order approval workflow | 🚧 Building |
+| IT service | **Repair Request** | Helpdesk for reporting and tracking IT repair jobs | 🚧 Building |
+| Shared | **Search** | Fast search across platform data, built around SQL optimization | ✅ Live |
+
+<sub>The platform is internal, so source code is private.</sub>
 
 <!-- ============ STACK ============ -->
 ## Tech stack
