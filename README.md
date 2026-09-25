@@ -62,12 +62,16 @@ Business need  ──►  Current process  ──►  Root problem  ──►  D
     <td><img src="https://skillicons.dev/icons?i=react,ts,js,html,css,bootstrap,jquery&theme=dark" height="40"/><br/>Razor, AJAX</td>
   </tr>
   <tr>
+    <td><b>Automation</b></td>
+    <td><img src="https://skillicons.dev/icons?i=powershell&theme=dark" height="40"/>&nbsp; SSIS, EDI data exchange, background workers, scheduled jobs, automated email (MailKit), workflow automation</td>
+  </tr>
+  <tr>
     <td><b>Security</b></td>
     <td>JWT, OAuth 2.0 / Google login, role-based access control, audit log, password policy</td>
   </tr>
   <tr>
     <td><b>Deploy & tools</b></td>
-    <td><img src="https://skillicons.dev/icons?i=git,github,visualstudio,vscode,postman,powershell,windows&theme=dark" height="40"/><br/>IIS, Windows Server, HTTPS/SSL, health checks, background workers, MailKit</td>
+    <td><img src="https://skillicons.dev/icons?i=git,github,visualstudio,vscode,postman,powershell,windows&theme=dark" height="40"/><br/>IIS, Windows Server, HTTPS/SSL, health checks</td>
   </tr>
 </table>
 
