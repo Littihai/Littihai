@@ -48,22 +48,6 @@ flowchart TB
     class A,R,L,N core
     class S,M,B,I,Q mod
 ```
-
-### Modules
-
-| Area | Module | What it does | Status |
-|---|---|---|---|
-| Sales and customer | **RFQ Management** | Manages requests for quotation from intake to response | ✅ Live |
-| | **EDI Integration** | Connects customer EDI data with internal systems | ✅ Live |
-| | **EDI Forecast Automation** | Receives customer forecasts via EDI with no manual re-keying | ✅ Live |
-| Production | **Production Control Planning** | Predictive production planning for an automotive parts factory | 🚧 Building |
-| | **Barcode** | Tracks items with barcode scanning across internal processes | ✅ Live |
-| Purchasing | **PR / PO Approval** | Purchase requisition and purchase order approval workflow | 🚧 Building |
-| IT service | **Repair Request** | Helpdesk for reporting and tracking IT repair jobs | 🚧 Building |
-| Shared | **Search** | Fast search across platform data, built around SQL optimization | ✅ Live |
-
-<sub>The platform is internal, so source code is private.</sub>
-
 <!-- ============ STACK ============ -->
 ## Tech stack
 
