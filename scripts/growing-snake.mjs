@@ -2,11 +2,16 @@
 /**
  * Growing contribution snake.
  *
- * Draws the last year's contribution graph as an animated SVG in which a snake
- * sweeps the grid column by column and grows as it eats: 1 segment for the
- * lightest green day up to 4 for the darkest — so the more you contribute, the
- * longer it gets. Pure CSS animation (no
- * JS), which is what GitHub renders inside a README <img>. No dependencies.
+ * Like Platane/snk, a snake glides over last year's contribution graph and eats
+ * the green days — but its tail grows as it eats: +1 segment for the lightest
+ * green day up to +4 for the darkest, so the more you contribute, the longer it
+ * gets. With every day eaten it chases its own tail, bites it — GAME OVER — and
+ * the loop starts again.
+ *
+ * Every segment replays the head's route a few steps later, so all segments share
+ * one @keyframes (plus a small per-segment show/flash animation) and the file stays
+ * small however long the snake gets. Pure CSS animation — what GitHub renders
+ * inside a README <img>. No dependencies.
  *
  *   GITHUB_TOKEN=… node growing-snake.mjs --user=Littihai --out=dist
  *   node growing-snake.mjs --data=contrib.json --out=dist      (offline)
@@ -46,93 +51,186 @@ async function loadCalendar() {
 const LEVEL = { NONE: 0, FIRST_QUARTILE: 1, SECOND_QUARTILE: 2, THIRD_QUARTILE: 3, FOURTH_QUARTILE: 4 };
 
 const THEMES = {
-  light: { empty: "#ebedf0", levels: ["#9be9a8", "#40c463", "#30a14e", "#216e39"], head: "#86198f", body: "#c026d3", bar: "#c026d3" },
-  dark: { empty: "#161b22", levels: ["#0e4429", "#006d32", "#26a641", "#39d353"], head: "#f0abfc", body: "#d946ef", bar: "#d946ef" },
+  light: { empty: "#ebedf0", levels: ["#9be9a8", "#40c463", "#30a14e", "#216e39"], snake: "#800080", head: "#5b005b", over: "#d1242f" },
+  dark: { empty: "#161b22", levels: ["#0e4429", "#006d32", "#26a641", "#39d353"], snake: "#b43ab4", head: "#e27be2", over: "#f85149" },
 };
 
-const CELL = 11; // square size
-const PITCH = 14; // square + gap
+const CELL = 11; // dot size
+const PITCH = 14; // dot + gap
 const PAD = 4;
-const START_LENGTH = 3;
+const ROWS = 7;
+const START_LENGTH = 4;
 /** segments gained per meal, by contribution level (1 = lightest … 4 = darkest) */
 const GROWTH_BY_LEVEL = [0, 1, 2, 3, 4];
+/** eat the leftmost days first, looking this many weeks ahead, so none is left behind */
+const LOOKAHEAD_WEEKS = 4;
 const STEP_SECONDS = 0.1;
-const PAUSE_STEPS = 12; // empty board before the loop restarts
+const OVER_STEPS = 22; // flash + "GAME OVER" before the loop restarts
 
 function buildGrid(calendar) {
   const weeks = calendar.data.user.contributionsCollection.contributionCalendar.weeks;
-  // serpentine: down the first week, up the next, … — every one of the 7 rows,
-  // so the snake keeps moving even across the missing days of a partial week
-  const path = [];
+  const cells = []; // [x][y] → { exists, level }
   weeks.forEach((w, x) => {
-    const byDay = new Map(w.contributionDays.map((d) => [d.weekday, d]));
-    const rows = x % 2 === 0 ? [0, 1, 2, 3, 4, 5, 6] : [6, 5, 4, 3, 2, 1, 0];
-    for (const y of rows) {
-      const day = byDay.get(y);
-      path.push({ x, y, exists: !!day, level: day ? LEVEL[day.contributionLevel] ?? 0 : 0 });
+    cells[x] = Array.from({ length: ROWS }, () => ({ exists: false, level: 0 }));
+    for (const d of w.contributionDays) cells[x][d.weekday] = { exists: true, level: LEVEL[d.contributionLevel] ?? 0 };
+  });
+  return { cells, width: weeks.length };
+}
+
+/** Shortest grid path from `from` to the nearest cell satisfying `isGoal` (BFS, 4-neighbour). */
+function pathToNearest(from, width, isGoal) {
+  const key = (x, y) => y * width + x;
+  const prev = new Map([[key(from.x, from.y), null]]);
+  const queue = [from];
+  for (let i = 0; i < queue.length; i++) {
+    const p = queue[i];
+    if (i > 0 && isGoal(p.x, p.y)) {
+      const path = [];
+      for (let q = p; q; q = prev.get(key(q.x, q.y))) path.push(q);
+      return path.reverse().slice(1);
     }
-  });
-  return { path, weeks: weeks.length };
+    for (const [dx, dy] of [[-1, 0], [0, 1], [0, -1], [1, 0]]) {
+      const n = { x: p.x + dx, y: p.y + dy };
+      if (n.x < 0 || n.x >= width || n.y < 0 || n.y >= ROWS || prev.has(key(n.x, n.y))) continue;
+      prev.set(key(n.x, n.y), p);
+      queue.push(n);
+    }
+  }
+  return null;
 }
 
-/** For every cell: when the head reaches it and when the tail leaves it. */
-function simulate(path) {
-  const n = path.length;
-  const grownBy = []; // segments gained up to and including step t (head at t)
-  let meals = 0;
+/** Straight-line steps (x first, then y) from a to b, excluding a. */
+function walk(a, b) {
+  const out = [];
+  let { x, y } = a;
+  while (x !== b.x) out.push({ x: (x += Math.sign(b.x - x)), y });
+  while (y !== b.y) out.push({ x, y: (y += Math.sign(b.y - y)) });
+  return out;
+}
+
+/**
+ * Head route per step, when each green day is eaten, the length over time, and the
+ * step at which the head bites the tail.
+ */
+function simulate({ cells, width }) {
+  // the closing lap must fit on the board, so the snake stops growing at that size
+  const maxLength = 2 * (width - 1) + 2 * (ROWS - 1) + 1;
+  const eaten = new Map(); // "x,y" → step
+  const head = [{ x: -1, y: 3 }]; // enters from the left edge, middle row
+  const growth = [0]; // segments gained so far, per step
   let grown = 0;
-  for (let t = 0; t < n; t++) {
-    if (path[t].level > 0) meals++;
-    grown += GROWTH_BY_LEVEL[path[t].level];
-    grownBy[t] = grown;
+  let meals = 0;
+  const isFood = (x, y) => cells[x]?.[y]?.level > 0 && !eaten.has(`${x},${y}`);
+
+  const moveTo = (p) => {
+    head.push(p);
+    if (isFood(p.x, p.y)) {
+      eaten.set(`${p.x},${p.y}`, head.length - 1);
+      grown = Math.min(maxLength - START_LENGTH, grown + GROWTH_BY_LEVEL[cells[p.x][p.y].level]);
+      meals++;
+    }
+    growth.push(grown);
+  };
+
+  moveTo({ x: 0, y: 3 });
+  for (;;) {
+    let minX = Infinity;
+    for (let x = 0; x < width && minX === Infinity; x++) for (let y = 0; y < ROWS; y++) if (isFood(x, y)) { minX = x; break; }
+    if (minX === Infinity) break;
+    const cur = head[head.length - 1];
+    const path = pathToNearest(cur, width, (x, y) => x <= minX + LOOKAHEAD_WEEKS && isFood(x, y));
+    if (!path) break;
+    path.forEach(moveTo);
   }
-  const length = (t) => START_LENGTH + grownBy[Math.min(t, n - 1)];
-  const finalLength = length(n - 1);
-  const total = n - 1 + finalLength + PAUSE_STEPS; // head exits, tail follows, short pause
-  const leave = [];
-  let t = 0;
-  for (let k = 0; k < n; k++) {
-    if (t < k) t = k;
-    while (t - length(t) + 1 <= k) t++; // first step at which the tail has passed k
-    leave[k] = t;
-  }
-  return { total, leave, finalLength, meals };
+
+  // closing lap: walk to a corner of a rectangle whose perimeter equals the snake's
+  // length − 1, go once around it — the tail is exactly where the lap began, so the
+  // head bites it (grids only have even cycles: an even length just touches it)
+  const length = START_LENGTH + grown;
+  const lap = Math.max(4, (length - 1) % 2 === 0 ? length - 1 : length - 2);
+  const h = Math.min(ROWS, lap / 2); // rows spanned
+  const w = lap / 2 + 2 - h; // columns spanned
+  const cur = head[head.length - 1];
+  const x0 = Math.max(0, Math.min(width - w, cur.x - Math.floor(w / 2)));
+  const y0 = cur.y < ROWS / 2 ? 0 : ROWS - h;
+  const corner = { x: x0, y: y0 };
+  walk(cur, corner).forEach(moveTo);
+  const lapPath = [
+    ...walk(corner, { x: x0 + w - 1, y: y0 }),
+    ...walk({ x: x0 + w - 1, y: y0 }, { x: x0 + w - 1, y: y0 + h - 1 }),
+    ...walk({ x: x0 + w - 1, y: y0 + h - 1 }, { x: x0, y: y0 + h - 1 }),
+    ...walk({ x: x0, y: y0 + h - 1 }, corner),
+  ];
+  lapPath.forEach(moveTo);
+  return { head, growth, eaten, meals, finalLength: length, bite: head.length - 1 };
 }
 
-function render(path, weeks, sim, theme) {
+function render({ cells, width }, sim, theme) {
   const c = THEMES[theme];
-  const width = PAD * 2 + weeks * PITCH - (PITCH - CELL);
-  const gridHeight = PAD * 2 + 7 * PITCH - (PITCH - CELL);
-  const height = gridHeight + 10;
-  const pct = (t) => +((t / sim.total) * 100).toFixed(3);
-  const colorOf = (cell) => (!cell.exists ? "none" : cell.level ? c.levels[cell.level - 1] : c.empty);
+  const w = PAD * 2 + width * PITCH - (PITCH - CELL);
+  const h = PAD * 2 + ROWS * PITCH - (PITCH - CELL);
+  const steps = sim.bite + OVER_STEPS;
+  const duration = `${(steps * STEP_SECONDS).toFixed(1)}s`;
+  const pct = (t) => +((Math.min(t, steps) / steps) * 100).toFixed(3);
+  const px = (p) => [PAD + p.x * PITCH, PAD + p.y * PITCH];
 
-  let css = `.s{animation:${(sim.total * STEP_SECONDS).toFixed(1)}s step-end infinite}`;
-  let rects = "";
-  path.forEach((cell, k) => {
-    const orig = colorOf(cell);
-    const after = cell.exists ? (cell.level ? c.empty : orig) : "none";
-    const frames = [[0, orig], [k, c.head]];
-    if (sim.leave[k] > k + 1) frames.push([k + 1, c.body]);
-    frames.push([sim.leave[k], after]);
-    css += `@keyframes k${k}{${frames.map(([t, f]) => `${pct(t)}%{fill:${f}}`).join("")}100%{fill:${after}}}.k${k}{animation-name:k${k}}`;
-    rects += `<rect class="s k${k}" x="${PAD + cell.x * PITCH}" y="${PAD + cell.y * PITCH}" width="${CELL}" height="${CELL}" rx="2" fill="${orig}"/>`;
+  // the head's route: a keyframe wherever it turns (linear in between glides
+  // smoothly), then it stays where it bit the tail
+  const turns = [];
+  sim.head.forEach((p, i) => {
+    const a = sim.head[i - 1];
+    const b = sim.head[i + 1];
+    if (!a || !b || a.x - p.x !== p.x - b.x || a.y - p.y !== p.y - b.y) turns.push(i);
   });
-  // progress bar under the grid
-  const barW = width - PAD * 2;
-  css += `@keyframes bar{0%{width:0}${pct(path.length + sim.finalLength - 1)}%{width:${barW}px}100%{width:${barW}px}}`;
-  css += `.bar{animation:bar ${(sim.total * STEP_SECONDS).toFixed(1)}s linear infinite}`;
-  const bar = `<rect class="bar" x="${PAD}" y="${gridHeight + 2}" width="0" height="4" rx="2" fill="${c.bar}"/>`;
+  const [ex, ey] = px(sim.head[sim.bite]);
+  let css = `@keyframes route{${turns.map((i) => { const [x, y] = px(sim.head[i]); return `${pct(i)}%{transform:translate(${x}px,${y}px)}`; }).join("")}100%{transform:translate(${ex}px,${ey}px)}}`;
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}">`
-    + `<desc>Contribution snake: ${sim.meals} green days eaten, grows from ${START_LENGTH} to ${sim.finalLength} segments</desc>`
-    + `<style>${css}</style>${rects}${bar}</svg>`;
+  // dots; green ones empty out when eaten and come back when the loop restarts
+  let dots = "";
+  cells.forEach((col, x) => col.forEach((cell, y) => {
+    if (!cell.exists) return;
+    const [cx, cy] = px({ x, y });
+    const fill = cell.level ? c.levels[cell.level - 1] : c.empty;
+    const t = sim.eaten.get(`${x},${y}`);
+    let attr = "";
+    if (t !== undefined) {
+      css += `@keyframes e${x}_${y}{0%{fill:${fill}}${pct(t)}%{fill:${c.empty}}100%{fill:${c.empty}}}`;
+      attr = ` class="d" style="animation-name:e${x}_${y}"`;
+    }
+    dots += `<rect${attr} x="${cx}" y="${cy}" width="${CELL}" height="${CELL}" rx="2" fill="${fill}"/>`;
+  }));
+  css += `.d{animation:${duration} step-end infinite}`;
+
+  // segment i replays the head's route i steps later. It shows once it is on the
+  // route (and, for grown ones, once the snake is long enough), flashes red when
+  // the head bites the tail, then disappears until the next loop.
+  const length = (t) => START_LENGTH + sim.growth[Math.min(t, sim.growth.length - 1)];
+  const b = sim.bite;
+  let segs = "";
+  for (let i = sim.finalLength - 1; i >= 0; i--) {
+    const size = Math.max(6, CELL - Math.floor(i / 8)); // tapers slightly toward the tail
+    const off = (CELL - size) / 2;
+    const [bx, by] = px({ x: -1 - i, y: 3 }); // where it waits before its delayed start
+    let show = i;
+    while (length(show) <= i) show++;
+    const fill = i === 0 ? c.head : c.snake;
+    css += `@keyframes s${i}{0%{opacity:0}${pct(show)}%{opacity:1}${pct(b)}%{fill:${c.over}}${pct(b + 3)}%{fill:${fill}}${pct(b + 6)}%{fill:${c.over}}${pct(b + 9)}%{fill:${fill}}${pct(b + 12)}%{opacity:0}100%{opacity:0}}`;
+    segs += `<rect style="transform:translate(${bx}px,${by}px);animation:route ${duration} linear ${(i * STEP_SECONDS).toFixed(1)}s infinite,s${i} ${duration} step-end infinite" x="${off}" y="${off}" width="${size}" height="${size}" rx="${Math.min(4, size / 2)}" fill="${fill}"/>`;
+  }
+
+  // GAME OVER, from the bite to the restart
+  css += `@keyframes over{0%{opacity:0}${pct(b + 3)}%{opacity:1}100%{opacity:1}}`;
+  css += `.over{animation:over ${duration} step-end infinite;font:bold 22px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:3px}`;
+  const over = `<text class="over" x="${w / 2}" y="${h / 2}" text-anchor="middle" dominant-baseline="central" fill="${c.over}" opacity="0">GAME OVER</text>`;
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}">`
+    + `<desc>Contribution snake: ${sim.meals} green days eaten, grows from ${START_LENGTH} to ${sim.finalLength} segments, then bites its tail</desc>`
+    + `<style>${css}</style>${dots}${segs}${over}</svg>`;
 }
 
-const calendar = await loadCalendar();
-const { path, weeks } = buildGrid(calendar);
-const sim = simulate(path);
+const grid = buildGrid(await loadCalendar());
+const sim = simulate(grid);
 mkdirSync(outDir, { recursive: true });
-writeFileSync(join(outDir, "github-contribution-grid-snake.svg"), render(path, weeks, sim, "light"));
-writeFileSync(join(outDir, "github-contribution-grid-snake-dark.svg"), render(path, weeks, sim, "dark"));
-console.log(`snake eats ${sim.meals} green days and grows ${START_LENGTH} → ${sim.finalLength}; loop ${(sim.total * STEP_SECONDS).toFixed(1)}s`);
+writeFileSync(join(outDir, "github-contribution-grid-snake.svg"), render(grid, sim, "light"));
+writeFileSync(join(outDir, "github-contribution-grid-snake-dark.svg"), render(grid, sim, "dark"));
+console.log(`snake eats ${sim.meals} green days, grows ${START_LENGTH} → ${sim.finalLength}, bites its tail at ${(sim.bite * STEP_SECONDS).toFixed(1)}s; loop ${((sim.bite + OVER_STEPS) * STEP_SECONDS).toFixed(1)}s`);
