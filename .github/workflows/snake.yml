@@ -6,6 +6,11 @@ on:
   push:
     branches: [main]
 
+# GitHub runs workflows only from .github/workflows/, and the job pushes the SVGs
+# to the `output` branch, so it needs write access to the repository contents
+permissions:
+  contents: write
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -13,7 +18,9 @@ jobs:
       - uses: Platane/snk@v3
         with:
           github_user_name: Littihai
-          outputs: dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
       - uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
