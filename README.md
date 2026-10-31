@@ -42,4 +42,20 @@
     src="https://raw.githubusercontent.com/Littihai/Littihai/output/github-contribution-grid-snake.svg"
   />
 </picture>
+
+<br/>
+<br/>
+
+<!-- SNAKE RULES: the behaviour of scripts/growing-snake.mjs -->
+<b>กติกาของงู</b>
+
+| เงื่อนไข | พฤติกรรม |
+| :--- | :--- |
+| ชนกำแพง | ไม่ให้จบก่อนเก็บครบ |
+| ชนลำตัว | ต้องหลีกเลี่ยง |
+| ชนหาง | ต้องหลีกเลี่ยง |
+| เจอช่อง Contribution | กินและเพิ่มความยาว |
+| Contribution ยังเหลือ | เล่นต่อ |
+| เก็บครบทุกช่อง | จบเกม (Victory) |
+
 </div>
