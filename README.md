@@ -31,10 +31,15 @@
 
 <br/>
 
-<!-- CONTRIBUTION SNAKE — redrawn every 6 hours by .github/workflows/snake.yml -->
+<!-- CONTRIBUTION SNAKE -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Littihai/Littihai/output/github-contribution-grid-snake-dark.svg" />
-  <img alt="contribution snake" src="https://raw.githubusercontent.com/Littihai/Littihai/output/github-contribution-grid-snake.svg" />
+  <source
+    media="(prefers-color-scheme: dark)"
+    srcset="https://raw.githubusercontent.com/Littihai/Littihai/output/github-contribution-grid-snake-dark.svg"
+  />
+  <img
+    alt="contribution snake"
+    src="https://raw.githubusercontent.com/Littihai/Littihai/output/github-contribution-grid-snake.svg"
+  />
 </picture>
-
 </div>
