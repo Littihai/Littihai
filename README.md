@@ -11,7 +11,6 @@
   <br>
 </p>
 <br/>
-<br/>
 
 <!-- STACK -->
 <p align="center">
